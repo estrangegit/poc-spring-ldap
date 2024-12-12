@@ -1,0 +1,12 @@
+.loginForm {
+    height: 80vh;
+}
+
+label:after {
+    content: " *";
+    color: var(--red-500);
+}
+
+small {
+    color: var(--red-500);
+}

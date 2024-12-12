@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  pocdb:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: postgesql-pocdb
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: pocdb
+      POSTGRES_PASSWORD: 123456
+      POSTGRES_DB: pocdb
+  openldap:
+    image: bitnami/openldap:latest
+    container_name: ldap-server
+    ports:
+      - '389:389'
+      - '636:636'
+    environment:
+      - LDAP_ROOT=dc=example,dc=com
+      - LDAP_ADMIN_USERNAME=admin
+      - LDAP_ADMIN_PASSWORD=adminpassword
+      - LDAP_PORT_NUMBER=389
+      - LDAP_LDAPS_PORT_NUMBER=636
+      - LDAP_SKIP_DEFAULT_TREE=yes
+      - BITNAMI_DEBUG=true
+    volumes:
+      - ./ldifs:/ldifs
+  phpldapadmin:
+    image: osixia/phpldapadmin:latest
+    container_name: phpldapadmin
+    environment:
+      - PHPLDAPADMIN_LDAP_HOSTS=ldap-server
+      - PHPLDAPADMIN_HTTPS=false
+    ports:
+      - "8081:80"
+    depends_on:
+      - openldap
+    restart: unless-stopped      

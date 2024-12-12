@@ -1,0 +1,18 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+    <changeSet author="ees" id="1-0-0-create-indexes-table-t-poc-vhl-vehicle" context="dev,test,int,pre-prod,prod">
+        <createIndex indexName="indx_vhl_licence_plate" tableName="t_poc_vhl_vehicle" schemaName="poc" tablespace="ts_indx_poc">
+            <column name="vhl_licence_plate"/>
+        </createIndex>
+        <createIndex indexName="indx_fk_vhl_brd" tableName="t_poc_vhl_vehicle" schemaName="poc" tablespace="ts_indx_poc">
+            <column name="vhl_brd_code"/>
+        </createIndex>
+        <addForeignKeyConstraint baseColumnNames="vhl_brd_code" baseTableName="t_poc_vhl_vehicle" constraintName="fk_vhl_brd" baseTableSchemaName="poc"
+                                 referencedColumnNames="brd_code" referencedTableSchemaName="poc" referencedTableName="t_poc_brd_brand"
+                                 validate="true" deferrable="false" initiallyDeferred="false" onDelete="CASCADE" onUpdate="RESTRICT"/>
+        <createIndex indexName="indx_vhl_issuance_date" tableName="t_poc_vhl_vehicle" schemaName="poc" tablespace="ts_indx_poc">
+            <column name="vhl_issuance_date"/>
+        </createIndex>        
+    </changeSet>
+    
+</databaseChangeLog>

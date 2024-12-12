@@ -1,0 +1,21 @@
+target/
+
+### IntelliJ IDEA ###
+.idea/
+.run/
+*.iws
+*.iml
+*.ipr
+
+### VS Code ###
+.vscode/
+src/main/js/front-end/node_modules
+src/main/js/front-end/dist
+src/main/js/front-end/node
+src/main/js/front-end/.vs/
+src/main/js/front-end/.angular/cache
+
+### Maven ###
+.mvn/
+mvnw
+mvnw.cmd

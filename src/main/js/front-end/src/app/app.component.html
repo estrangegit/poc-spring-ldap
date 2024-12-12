@@ -1,0 +1,12 @@
+<div class="h-full flex flex-column">
+    <app-spinner></app-spinner>
+    <p-toast/>
+    <div class="mb-2 app-p-menubar" *ngIf="showMenuBar">
+        <p-menubar [model]="items">
+            <ng-template pTemplate="end">
+                <p-button [outlined]="true" icon="pi pi-sign-out" (click)="logout()"></p-button>
+            </ng-template>
+        </p-menubar>
+    </div>
+    <router-outlet></router-outlet>
+</div>

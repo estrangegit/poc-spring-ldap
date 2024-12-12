@@ -1,0 +1,21 @@
+<div class="loginForm grid flex justify-content-center align-items-center">
+    <p-panel class="col-3" styleClass="p-panel-login">
+        <form [formGroup]="loginForm" (submit)="onLogin()" class="pt-6 pb-3">
+            <div class="field grid">
+                <label for="login" class="col-3 mb-2">Login</label>
+                <input type="text" pInputText id="login" formControlName="login" class="col-9">
+                <small *ngIf="login.invalid && (login.dirty || login.touched) && login.errors?.['required']"
+                    class="col-offset-3 col-9">please provide login information</small>
+            </div>
+            <div class="field grid">
+                <label for="password" class="col-3 mb-2">Password</label>
+                <input type="password" pInputText id="password" formControlName="password" class="col-9">
+                <small *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']"
+                    class="col-offset-3 col-9">please provide a password</small>
+            </div>
+            <div class="flex justify-content-center">
+                <p-button type="submit" [disabled]="loginForm.invalid">Connect</p-button>
+            </div>
+        </form>
+    </p-panel>
+</div>

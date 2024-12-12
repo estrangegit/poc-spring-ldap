@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet author="ees" id="1-0-0-create-table-t-poc-vhl-vehicle" context="dev,test,int,pre-prod,prod">
+        <createSequence sequenceName="seq_pk_vhl" schemaName="poc" cycle="true" incrementBy="1" startValue="1" maxValue="99999999" cacheSize="0"/>
+        <createTable schemaName="poc" tableName="t_poc_vhl_vehicle" tablespace="ts_data_poc">
+            <column name="vhl_id" type="int" autoIncrement="true">
+                <constraints primaryKey="true" primaryKeyName="pk_poc_vhl" primaryKeyTablespace="ts_indx_poc"/>
+            </column>
+            <column name="vhl_licence_plate" type="varchar(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vhl_brd_code" type="varchar(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="vhl_issuance_date" type="timestamp">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+        <addUniqueConstraint columnNames="vhl_licence_plate" 
+                             constraintName="unique_vhl_licence_plate" 
+                             disabled="false" 
+                             schemaName="poc" 
+                             tableName="t_poc_vhl_vehicle"
+                             tablespace="ts_indx_poc"/>
+    </changeSet>
+    <changeSet author="ees" id="1-0-0-create-table-t-poc-brd-brand" context="dev,test,int,pre-prod,prod">
+        <createTable schemaName="poc" tableName="t_poc_brd_brand" tablespace="ts_data_poc">
+            <column name="brd_code" type="varchar(5)">
+                <constraints primaryKey="true" primaryKeyName="pk_poc_brd" primaryKeyTablespace="ts_indx_poc"/>
+            </column>
+            <column name="brd_name" type="varchar(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>    
+</databaseChangeLog>

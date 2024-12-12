@@ -1,0 +1,61 @@
+.p-panel-login {
+    background-color: var(--blue-50);
+    flex-direction: column;
+    align-items: normal;
+}
+
+div.home-p-panel,
+div.role1-p-panel,
+div.role2-p-panel,
+div.vehicles-p-panel,
+div.page-not-found-p-panel {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+div.home-p-panel {
+    background-color: var(--cyan-100);
+}
+
+div.role1-p-panel {
+    background-color: var(--blue-100);
+}
+
+div.role2-p-panel {
+    background-color: var(--indigo-100);
+}
+
+div.page-not-found-p-panel {
+    background-color: var(--red-100);
+}
+
+.app-p-menubar .p-menuitem-link-active .p-menuitem-text {
+    color: var(--blue-700);
+    text-decoration: underline;
+}
+
+.app-p-menubar .p-menuitem-link-active .p-menuitem-icon {
+    color: var(--blue-700);
+}
+
+.app-p-menubar p-menubarsub {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.p-progress-spinner {
+    position: relative;
+    top: 45vh;
+    text-align: center;
+}
+
+.vehicles-filter-brand-dropdown {
+    width: 100%;
+}
+
+.vehicles-filter-brand-dropdown div:first-child {
+    width: 100%;
+}

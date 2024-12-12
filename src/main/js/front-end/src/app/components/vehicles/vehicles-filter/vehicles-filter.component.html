@@ -1,0 +1,28 @@
+<div class="h-full brand-form-container">
+    <form class="flex h-full flex-column justify-content-center" [formGroup]="vehiclesFilter"
+        (submit)="searchVehicles()">
+        <div class="flex flex-column">
+            <div class="field grid">
+                <div class="col-3 brand-label-container">
+                    <label for="brand">Brand</label>
+                </div>
+                <div class="col-8 brand-dropdown-container">
+                    <p-dropdown
+                        formControlName="brand"
+                        [options]="brands | async"
+                        optionLabel="name"
+                        optionValue="code"
+                        [showClear]="true"
+                        placeholder="Select a vehicle brand"
+                        class="vehicles-filter-brand-dropdown">
+                    </p-dropdown>
+                </div>
+
+            </div>
+        </div>
+        <div class="flex gap-3 align-items-center justify-content-end w-11">
+            <p-button icon="pi pi-undo" label="clear" severity="secondary" [outlined]="true" (click)="clearFilter()"></p-button>
+            <p-button type="submit" icon="pi pi-search" label="search" severity="primary" [outlined]="true"></p-button>
+        </div>
+    </form>
+</div>

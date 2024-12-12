@@ -1,0 +1,58 @@
+# dc=example,dc=com
+#│
+#├── ou=agents
+#│   ├── uid=admin,ou=agents,dc=example,dc=com
+#│   ├── uid=user1,ou=agents,dc=example,dc=com
+#|   ├── uid=user2,ou=agents,dc=example,dc=com
+#│
+#└── ou=permissions
+#    ├── cn=role1,ou=permissions,dc=example,dc=com
+#    ├── cn=role2,ou=permissions,dc=example,dc=com
+
+dn: dc=example,dc=com
+objectClass: top
+objectClass: domain
+dc: example
+
+dn: ou=agents,dc=example,dc=com
+objectClass: organizationalUnit
+ou: agents
+
+dn: ou=permissions,dc=example,dc=com
+objectClass: organizationalUnit
+ou: permissions
+
+dn: uid=admin,ou=agents,dc=example,dc=com
+objectClass: inetOrgPerson
+uid: admin
+cn: admin_first_name admin_last_name
+sn: admin_last_name
+userPassword: admin
+
+dn: uid=user1,ou=agents,dc=example,dc=com
+objectClass: inetOrgPerson
+uid: user1
+cn: user1_first_name user1_last_name
+sn: user1_last_name
+userPassword: user1
+
+dn: uid=user2,ou=agents,dc=example,dc=com
+objectClass: inetOrgPerson
+uid: user2
+cn: user2_first_name user2_last_name
+sn: user2_last_name
+userPassword: user2
+
+dn: cn=role1,ou=permissions,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE1
+member: uid=admin,ou=agents,dc=example,dc=com
+member: uid=user1,ou=agents,dc=example,dc=com
+
+dn: cn=role2,ou=permissions,dc=example,dc=com
+objectClass: top
+objectClass: groupOfNames
+cn: ROLE2
+member: uid=admin,ou=agents,dc=example,dc=com
+member: uid=user2,ou=agents,dc=example,dc=com

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
+    <changeSet id="1-0-0-init-dataset-t-poc-brd-brand" author="ees" context="dev,test,int,pre-prod,prod">
+        <loadData encoding="UTF-8" quotchar="&quot;" separator="," relativeToChangelogFile="true" file="./datasets/t_poc_brd_brand.csv" tableName="t_poc_brd_brand" schemaName="poc">
+            <column name="brd_code" type="STRING"/>
+            <column name="brd_name" type="STRING"/>
+        </loadData>
+    </changeSet>
+</databaseChangeLog>
