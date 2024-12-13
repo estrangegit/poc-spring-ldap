@@ -14,7 +14,7 @@ import org.springframework.security.web.authentication.AnonymousAuthenticationFi
 @RequiredArgsConstructor
 public class SecurityConfig {
 
-    @Value("${application.web.resources: /index.html,/*.js,/*.css,/assets/images/*.png,/favicon.ico,/}")
+    @Value("${application.web.resources: /index.html,/*.js,/*.css,/media/*,/favicon.ico,/}")
     private String[] webResources;
     
     private final JWTAuthenticationFilter jwtAuthenticationFilter;

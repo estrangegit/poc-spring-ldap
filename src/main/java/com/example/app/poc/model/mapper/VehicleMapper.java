@@ -18,7 +18,7 @@ public abstract class VehicleMapper {
     @Autowired
     private IDateUtilitarianService dateUtilitarianService;
 
-    @Mapping(source = "brand.code", target="brand")
+    @Mapping(source = "brand.name", target="brand")
     @Mapping(source = "issuanceDate", target = "issuanceDate", qualifiedByName = "formatStandard")
     public abstract VehicleDto vehicleToVehicleDto(Vehicle vehicle);
 

@@ -3,12 +3,34 @@
         <app-vehicles-filter></app-vehicles-filter>
     </div>
     <div class="col-9">
-        <p-panel styleClass="vehicles-p-panel">
-            <div class="flex justify-content-center align-items-center">
-                <i class="pi pi-chevron-left"></i>
-                <h1 class="mr-2 ml-2">vehicle list is coming soon</h1>
-                <i class="pi pi-chevron-right"></i>
+        <div class="p-table-paginator-vehicles-container">
+            <div class="p-table-vehicles-container">
+                <p-table [value]="pageableVehicles?.content != undefined? pageableVehicles?.content: []"
+                    styleClass="vehicles-p-table">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th>Licence plate</th>
+                            <th>Brand</th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-vehicle>
+                        <tr>
+                            <td>{{ vehicle.licencePlate }}</td>
+                            <td>{{ vehicle.brand }}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
             </div>
-        </p-panel>
+            <div class="p-paginator-vehicles-container">
+                <p-paginator (onPageChange)="pageChange($event)"
+                    [rows]="rows"
+                    [first]="pageableVehicles?.pageSize * pageableVehicles?.pageNumber"
+                    [totalRecords]="pageableVehicles?.totalNbElements != undefined? pageableVehicles?.totalNbElements: 0"
+                    [rowsPerPageOptions]="[5, 10, 20]"
+                    [showCurrentPageReport]="true"
+                    [currentPageReportTemplate] = "'{totalRecords} vehicles'">
+                </p-paginator>
+            </div>
+        </div>
     </div>
 </div>

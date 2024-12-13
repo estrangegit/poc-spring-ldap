@@ -5,3 +5,19 @@
 i {
     font-size: 3rem;
 }
+
+.p-table-paginator-vehicles-container {
+    width: 100%;
+    height: 100%;
+    border: 1px solid var(--gray-200);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 88vh;
+}
+
+.p-table-vehicles-container {
+    margin: 10px;
+    overflow-y: auto;
+}

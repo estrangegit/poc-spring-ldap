@@ -4,6 +4,7 @@ import com.example.app.poc.validation.BrandConstraint;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 import lombok.Data;
 
@@ -22,9 +23,11 @@ public class VehicleFilter {
     private String sortKey;
     @Pattern(regexp = "asc|desc", message = "sortDirections available values are 'asc' and 'desc'")
     private String sortDirection;
+    @NotNull(message = "page number must not be null")
     @Min(value = 0, message = "page number must be at least 0")
-    private int page = 0;
+    private Integer page;
+    @NotNull(message = "page size must not be null")
     @Min(value = 0, message = "page size must be at least 0")
     @Max(value = 50, message = "page size must be at most 50")
-    private int size = 10;
+    private Integer size;
 }

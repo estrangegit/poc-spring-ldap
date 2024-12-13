@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   pocdb:
     build:
@@ -38,4 +36,4 @@ services:
       - "8081:80"
     depends_on:
       - openldap
-    restart: unless-stopped      
+    restart: unless-stopped

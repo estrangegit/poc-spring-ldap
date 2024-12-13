@@ -10,9 +10,12 @@ i {
     text-align: right;
 }
 
-.brand-form-container {
-    border-width: 1px;
-    border-style: solid;
-    border-color: var(--gray-200);
-    border-radius: 6px;
+.vehicle-filter-p-panel-header h3 {
+    color: var(--gray-500);
+    font-weight: 300;
+}
+
+.vehicle-filter-p-panel-header hr {
+    border: none;
+    border-top: 1px solid var(--gray-200);
 }

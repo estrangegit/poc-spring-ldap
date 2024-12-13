@@ -7,7 +7,6 @@
 div.home-p-panel,
 div.role1-p-panel,
 div.role2-p-panel,
-div.vehicles-p-panel,
 div.page-not-found-p-panel {
     display: flex;
     justify-content: center;
@@ -50,6 +49,11 @@ div.page-not-found-p-panel {
     position: relative;
     top: 45vh;
     text-align: center;
+}
+
+.vehicle-filter-p-panel, .vehicle-filter-p-panel > div {
+    height: 100%;
+    display: block;
 }
 
 .vehicles-filter-brand-dropdown {

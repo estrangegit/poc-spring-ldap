@@ -1,13 +1,11 @@
 package com.example.app.poc.model.specification;
 
+import com.example.app.poc.model.Brand;
 import com.example.app.poc.model.Vehicle;
 import com.example.app.poc.model.enumeration.ESortDirection;
 import com.example.app.poc.model.filter.VehicleFilter;
 import com.google.common.collect.Lists;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Predicate;
-import jakarta.persistence.criteria.Root;
+import jakarta.persistence.criteria.*;
 import org.springframework.data.jpa.domain.Specification;
 
 import java.util.List;
@@ -23,6 +21,7 @@ public class VehicleSpecification implements Specification<Vehicle> {
 
     private static final String LICENCE_PLATE = "licencePlate";
     private static final String BRAND = "brand";
+    private static final String CODE = "code";
     private static final String ISSANCE_DATE = "issuanceDate";
     
     @Override
@@ -36,7 +35,8 @@ public class VehicleSpecification implements Specification<Vehicle> {
         }
         
         if(vehicleFilter.getBrand() != null) {
-            Predicate predicate = criteriaBuilder.equal(root.get(BRAND), vehicleFilter.getBrand());
+            Join<Vehicle, Brand> childJoin = root.join(BRAND);
+            Predicate predicate = criteriaBuilder.equal(childJoin.get(CODE), vehicleFilter.getBrand());
             predicates.add(predicate);
         }
         
